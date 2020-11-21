@@ -57,7 +57,7 @@ export default {
         ]);
 
         this.time = {
-          datetime: detailsRes.data.datetime,
+          datetime: this.removeConversion(detailsRes.data.datetime),
           timezone: detailsRes.data.abbreviation,
           city: locationRes.data.city,
           countryCode: locationRes.data.country_code,
@@ -74,7 +74,7 @@ export default {
 
         setInterval(async () => {
           const { data } = await axios.get("https://worldtimeapi.org/api/ip");
-          this.time = { ...this.time, datetime: data.datetime };
+          this.time.datetime = this.removeConversion(data.datetime);
         }, 60000);
       } catch {
         this.error = true;
@@ -90,6 +90,9 @@ export default {
     },
     toggleDrawer() {
       this.showDrawer = !this.showDrawer;
+    },
+    removeConversion(datetime) {
+      return datetime.substring(0, datetime.length - 6);
     },
   },
   mounted() {

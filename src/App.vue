@@ -52,7 +52,7 @@ export default {
     loadData: async function() {
       try {
         const [detailsRes, locationRes] = await axios.all([
-          axios.get("http://worldtimeapi.org/api/ip"),
+          axios.get("https://worldtimeapi.org/api/ip"),
           axios.get("https://freegeoip.app/json/"),
         ]);
 
@@ -73,7 +73,7 @@ export default {
         this.loading = false;
 
         setInterval(async () => {
-          const { data } = await axios.get("http://worldtimeapi.org/api/ip");
+          const { data } = await axios.get("https://worldtimeapi.org/api/ip");
           this.time = { ...this.time, datetime: data.datetime };
         }, 60000);
       } catch {

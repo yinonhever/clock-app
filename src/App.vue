@@ -61,6 +61,7 @@ export default {
           timezone: detailsRes.data.abbreviation,
           city: locationRes.data.city,
           countryCode: locationRes.data.country_code,
+          countryName: locationRes.data.country_name,
         };
 
         this.details = {

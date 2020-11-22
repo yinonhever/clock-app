@@ -11,7 +11,7 @@
         <span class="time__time">{{ time }}</span>
         <span class="time__timezone">{{ timezone }}</span>
       </h1>
-      <h3 class="time__location">In {{ location }}</h3>
+      <h3 v-if="location" class="time__location">In {{ location }}</h3>
     </div>
     <ToggleButton :drawerOpen="drawerOpen" @click="$emit('toggle')" />
   </section>
@@ -30,6 +30,7 @@ export default {
     timezone: String,
     city: String,
     countryCode: String,
+    countryName: String,
     drawerOpen: Boolean,
   },
   emits: ["toggle"],
@@ -42,7 +43,15 @@ export default {
       return `${this.hour}:${minutes} `;
     },
     location() {
-      return `${this.city}, ${this.countryCode}`;
+      let location = "";
+      if (this.city) {
+        location += this.city;
+        if (this.countryCode) location += `, ${this.countryCode}`;
+      } else {
+        if (this.countryName) location += this.countryName;
+        else if (this.countryCode) location += this.countryCode;
+      }
+      return location;
     },
     greetingText() {
       if (this.hour >= 5 && this.hour <= 11) return "Good morning";
@@ -52,9 +61,6 @@ export default {
     greetingIcon() {
       if (this.hour >= 5 && this.hour <= 17) return iconSun;
       else return iconMoon;
-    },
-    buttonMode() {
-      return this.drawerOpen ? "less" : "more";
     },
   },
 };

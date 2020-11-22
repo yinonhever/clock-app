@@ -68,7 +68,6 @@
   &__heading {
     display: flex;
     align-items: flex-end;
-    margin-bottom: 1.6rem;
   }
 
   &__time {
@@ -123,6 +122,7 @@
     letter-spacing: 0.48rem;
     font-weight: 700;
     text-transform: uppercase;
+    margin-top: 1.6rem;
 
     @include respond(tablet) {
       font-size: 1.8rem;

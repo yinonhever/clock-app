@@ -26,7 +26,7 @@ import iconMoon from "../assets/desktop/icon-moon.svg";
 export default {
   components: { ToggleButton },
   props: {
-    datetime: String,
+    datetime: [String, Object],
     timezone: String,
     city: String,
     countryCode: String,

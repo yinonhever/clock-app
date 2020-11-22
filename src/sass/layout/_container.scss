@@ -1,0 +1,45 @@
+// CONTAINER
+.container {
+  min-height: 100vh;
+  height: 80rem;
+  position: relative;
+  overflow: hidden;
+
+  &__bg {
+    width: 100%;
+    height: 100%;
+    background-image: url(../assets/desktop/bg-image-daytime.jpg);
+    background-size: cover;
+    background-position: center;
+    box-shadow: inset 0 0 0 200rem rgba(#000, 0.3);
+    animation: zoomOutBackground 2.25s;
+  }
+
+  &.night &__bg {
+    background-image: url(../assets/desktop/bg-image-nighttime.jpg);
+  }
+
+  @include respond(tablet) {
+    height: 102.4rem;
+
+    &__bg {
+      background-image: url(../assets/tablet/bg-image-daytime.jpg);
+    }
+
+    &.night &__bg {
+      background-image: url(../assets/tablet/bg-image-nighttime.jpg);
+    }
+  }
+
+  @include respond(mobile) {
+    height: 66.7rem;
+
+    &__bg {
+      background-image: url(../assets/mobile/bg-image-daytime.jpg);
+    }
+
+    &.night &__bg {
+      background-image: url(../assets/mobile/bg-image-nighttime.jpg);
+    }
+  }
+}

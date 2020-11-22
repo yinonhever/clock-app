@@ -72,7 +72,7 @@ export default {
 
         this.loading = false;
 
-        setInterval(async () => {
+        setInterval(() => {
           this.time.datetime = moment(this.time.datetime).add(1, "m");
         }, 60000);
       } catch {

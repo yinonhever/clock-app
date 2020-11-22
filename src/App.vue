@@ -73,8 +73,7 @@ export default {
         this.loading = false;
 
         setInterval(async () => {
-          const { data } = await axios.get("https://worldtimeapi.org/api/ip");
-          this.time.datetime = this.removeConversion(data.datetime);
+          this.time.datetime = moment(this.time.datetime).add(1, "m");
         }, 60000);
       } catch {
         this.error = true;

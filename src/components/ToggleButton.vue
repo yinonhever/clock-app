@@ -2,7 +2,7 @@
   <button :class="classes">
     <span class="toggler__text">{{ text }}</span>
     <span class="toggler__icon">
-      <i class="fas fa-angle-down" />
+      <i class="abs-center fas fa-angle-down" />
     </span>
   </button>
 </template>

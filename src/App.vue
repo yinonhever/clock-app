@@ -67,7 +67,7 @@ export default {
         this.details = {
           timezone: detailsRes.data.timezone,
           dayOfYear: detailsRes.data.day_of_year,
-          dayOfWeek: detailsRes.data.day_of_week,
+          dayOfWeek: detailsRes.data.day_of_week + 1,
           week: detailsRes.data.week_number,
         };
 

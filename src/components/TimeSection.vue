@@ -3,7 +3,9 @@
     <div class="time__content">
       <div class="time__greeting">
         <img class="time__icon" :src="greetingIcon" :alt="greetingText" />
-        <h4 class="time__greeting-text">{{ greetingText }}, it's currently</h4>
+        <h4 class="time__greeting-text">
+          {{ greetingText }}<span class="hidden-mobile">, it's currently</span>
+        </h4>
       </div>
       <h1 class="time__heading">
         <span class="time__time">{{ time }}</span>

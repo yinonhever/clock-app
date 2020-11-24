@@ -72,12 +72,9 @@ export default {
         };
 
         this.loading = false;
-
-        setInterval(() => {
-          this.time.datetime = moment(this.time.datetime).add(1, "m");
-        }, 60000);
       } catch {
         this.error = true;
+        this.loading = false;
       }
     },
     loadNewQuote: async function() {
@@ -98,6 +95,7 @@ export default {
   mounted() {
     this.loadData();
     this.loadNewQuote();
+    setInterval(() => this.loadData(), 60000);
   },
 };
 </script>

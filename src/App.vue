@@ -73,7 +73,11 @@ export default {
 
         this.loading = false;
       } catch {
-        this.error = true;
+        if (this.time.datetime) {
+          this.time.datetime = moment(this.time.datetime).add(30, "s");
+        } else {
+          this.error = true;
+        }
         this.loading = false;
       }
     },
@@ -95,7 +99,7 @@ export default {
   mounted() {
     this.loadData();
     this.loadNewQuote();
-    setInterval(() => this.loadData(), 60000);
+    setInterval(this.loadData, 30000);
   },
 };
 </script>
